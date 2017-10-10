@@ -32,7 +32,7 @@
     <a href = "#8">表格行的颜色类</a><br/>
     <a href = "#9">表单</a><br/>
     <a href = "#10">导航</a><br/>
-    <a href = "#11"></a><br/>
+    <a href = "#11">导航条</a><br/>
     <a href = "#12"></a><br/>
     <a href = "#13"></a><br/>
     <a href = "#14"></a><br/>
@@ -268,16 +268,17 @@
     <ul><b>一般导航里会有一个选项卡被选中，bootstrap框架中通过给当前选项卡添加<span class="text-info">.active</span>类实现。另外，有的选项卡处于禁用状态，可以添加<span class="text-info">.disabled</span>类实现。</b></ul>
     <ul><b>bootstrap框架中制作导航条主要通过给ul添加<span class="text-success">.nav</span>类，默认的.nav样式不提供默认导航样式，必须附加另一个样式，比如<span class="text-info">.nav-tabs</span>等。</b>
       <li>标签形导航卡，也叫选项卡导航，使用<span class="text-info">.nav-tabs</span>来实现
-        <ul class="nav nav-tabs " id="tabs-bar">
+        <ol class="nav nav-tabs " id="tabs-bar">
           <li class="active"><a href="#10">导航</a></li>
           <li><a href="#top">顶部</a></li>
           <li ><a href="#5">列表</a></li>
           <li class="disabled"><a href="#">代码</a></li>
-        </ul>
+        </ol>
       </li>
       <li>胶囊形导航，使用<span class="text-info">.nav-pills</span>类实现。
         <ul class="nav nav-pills" id="pills-bar">
           <li class="active"><a href="#10">导航</a></li>
+          <li class="nav-divider"></li>
           <li><a href="#top">顶部</a></li>
           <li ><a href="#5">列表</a></li>
           <li class="disabled"><a href="#">代码</a></li>
@@ -290,9 +291,173 @@
       <li>自适应导航<span class="text-success">.nav-justified</span>。指占用容器全部宽度，且菜单项自适应宽度。和垂直堆砌一样需要<span class="text-info">.nav-pills</span>或<span class="text-info">.nav-tabs</span>配合使用。<br/>
         <a id="tabs-justified">点我使选项卡导航自适应</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="pills-justified">点我使胶囊形导航自适应</a>
       </li>
+      <li>二级导航，只需在需要二级导航的<span class="text-info">&lt;li&gt;</span>上加<code>.dropdown</code>类，<br/>
+        在<span class="text-info">&lt;a&gt;</span>上加<code>.dropdown-toggle</code>类，<br/>
+        在二级导航的<span class="text-info">&lt;ul&gt;</span>加<code>.dropdown-menu</code>类。<br/>
+        <span class="text-warning">二级导航和下拉菜单相似，可以添加分割线，通过<code>&lt;li class="nav-divider"&gt;&lt;/li&gt;</code>得到</span><br/>
+        <span class="text-warning">另外，垂直堆砌的导航也可以通过这种方式添加分割线。</span>
+        <ul class="nav nav-pills">
+          <li class="active"><a href="#10">导航</a></li>
+          <li class="dropdown">
+            <a href="##" class="dropdown-toggle" data-toggle="dropdown">教程<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#1">标题</a></li>
+              <li class="nav-divider"></li>
+              <li><a href="#2">强调内容</a></li>
+              <li><a href="#3">强调：颜色</a></li>
+            </ul>
+          </li>
+          <li><a href="##">关于作者</a></li>
+        </ul>
+      </li>
+      <li>面包屑(Breadcrumb)式导航。使用<span class='text-info'>.breadcrumb</span>类实现。<br/>
+        <span class="text-muted">看它名字就知道，面包屑导航不支持.nav-stacked和.nav-justified</span><br/>
+        <a href="https://baike.baidu.com/item/%E9%9D%A2%E5%8C%85%E5%B1%91%E5%AF%BC%E8%88%AA/358283?fr=aladdin">关于面包屑度娘知道很多</a>
+        <ul class="breadcrumb ">
+          <li><a href="#1">首页</a></li>
+          <li><a href="#2">文章</a></li>
+          <li><a href="#3">bootstrap从入门到入土</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <h1 id="11">导航条</h1>
+    <ul><b>导航(nav)和导航条(navbar)名字很像，但在bootstrap框架还是有明显的区别。</b><br/>
+      <b>比如导航条有背景色，而且导航条既可以是纯链接(就像导航)，也可以是表单，甚至两种的混合等。</b>
+      <li>基础导航条。基础导航条以导航为基础。把基础无样式导航变成导航条需两步
+        <ol>
+          <li>在导航的<code>&lt;ul|ol class="nav"&gt;</code>标签增加<span class="text-info">.navbar-nav</span>类</li>
+          <li>在导航的列表外部包一个div，并为其添加.navbar .navbar-default类<code>&lt;div class="navbar navbar-default"&gt;</code></li>
+        </ol>
+      </li>
+      <li>为导航条添加标题。
+        <ol><li>在列表（ul）前插入一个div盒子，并添加.navbar-header类<code>&lt;div class="navbar-header"&gt;</code></li>
+          <li>在上一步添加的div中放入一个a标签，并为其添加.navbar-brand类<code>&lt;a class="navbar-brand"&gt;标题&lt;/&gt;</code></li>
+        </ol>
+        <!-- 栗子 -->
+        <div class="navbar navbar-default" role="navigation">
+          <div class="navbar-header">
+            <a class="navbar-brand">MUSHROOM</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#11">导航条</a></li>
+            <li class="dropdown">
+              <a  class="dropdown-toggle" data-toggle="dropdown">目录跳转<span class="caret"></span></a>
+              <ol class="dropdown-menu">
+                <li><a href="#1">标题</a></li>
+                <li><a href="#4">文本对齐风格</a></li>
+                <li class="nav-divider"></li>
+                <li class="disabled"><a >表格风格</a></li>
+              </ol>
+            </li>
+          </ul>
+          <form action="##" class="navbar-form narbar-left" rol="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="请输入关键词"/>
+            </div>
+            <button type="submit" class="btn btn-default">搜&nbsp;索</button>
+          </form>
+        </div>
+      </li>
+    <li>为导航条添加表单。如上示例，只需在最外层div里添加个表单，并为它添加一个<span class="text-info">.navbar-form</span>类<code>&lt;form class="navbar-form navbar-left"&gt;</code><br>
+        <span class="text-muted">.navbar-left  .navbar-right使表单左|右浮动，更好实现对齐</span>
+    </li>
+  	<li>导航条中的按钮，文本，连接。三个类。.navbar-btn .navbar-text .navbar-link。<span class="text-muted">需和navbar-brand .navbar-nav配合使用</span>
+  	</li>
+  	<li>固定导航条。固定导航条在窗口顶部或底部。使用方法：在导航条最外部容器（div）追加<code>.navbar-fixed-top  .navbar-fixed-bottom</code>类</li>
+  	<li>响应式导航条。慕课网的一个例子。注意button及列表外包了个类为<code>.collapse .navbar-collapse .navbar-responsive-collapse</code>的div盒子。
+
+  		<pre>
+ &lt;div class="navbar navbar-default" role="navigation"&gt;
+  &lt;div class="navbar-header"&gt;
+     　&lt;!-- .navbar-toggle样式用于toggle收缩的内容，即nav-collapse collapse样式所在元素 --&gt;
+       &lt;button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse"&gt;
+         &lt;span class="sr-only"&gt;Toggle Navigation&lt;/span&gt;
+         &lt;span class="icon-bar"&gt;&lt;/span&gt;
+         &lt;span class="icon-bar"&gt;&lt;/span&gt;
+         &lt;span class="icon-bar"&gt;&lt;/span&gt;
+       &lt;/button&gt;
+       &lt;!-- 确保无论是宽屏还是窄屏，navbar-brand都显示 --&gt;
+       &lt;a href="##" class="navbar-brand"&gt;慕课网&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;!-- 屏幕宽度小于768px时，div.navbar-responsive-collapse容器里的内容都会隐藏，显示icon-bar图标，当点击icon-bar图标时，再展开。屏幕大于768px时，默认显示。 --&gt;
+  &lt;div class="collapse navbar-collapse navbar-responsive-collapse"&gt;
+    	&lt;ul class="nav navbar-nav"&gt;
+      		&lt;li class="active"&gt;&lt;a href="##"&gt;网站首页&lt;/a&gt;&lt;/li&gt;
+      		&lt;li&gt;&lt;a href="##"&gt;系列教程&lt;/a&gt;&lt;/li&gt;
+      		&lt;li&gt;&lt;a href="##"&gt;名师介绍&lt;/a&gt;&lt;/li&gt;
+      		&lt;li&gt;&lt;a href="##"&gt;成功案例&lt;/a&gt;&lt;/li&gt;
+      		&lt;li&gt;&lt;a href="##"&gt;关于我们&lt;/a&gt;&lt;/li&gt;
+	 	&lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+		</pre>显示效果如下：
+		<div id="the-bar" class="navbar navbar-default" role="navigation">
+  <div class="navbar-header">
+     　<!-- .navbar-toggle样式用于toggle收缩的内容，即nav-collapse collapse样式所在元素 -->
+       <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+         <span class="sr-only">Toggle Navigation</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+       </button>
+       <!-- 确保无论是宽屏还是窄屏，navbar-brand都显示 -->
+       <a href="##" class="navbar-brand">慕课网</a>
+  </div>
+  <!-- 屏幕宽度小于768px时，div.navbar-responsive-collapse容器里的内容都会隐藏，显示icon-bar图标，当点击icon-bar图标时，再展开。屏幕大于768px时，默认显示。 -->
+  <div class="collapse navbar-collapse navbar-responsive-collapse">
+    	<ul class="nav navbar-nav">
+      		<li class="active"><a href="##">网站首页</a></li>
+      		<li><a href="##">系列教程</a></li>
+      		<li><a href="##">名师介绍</a></li>
+      		<li><a href="##">成功案例</a></li>
+      		<li><a href="##">关于我们</a></li>
+	 	</ul>
+  </div>
+</div>
+
+</li>
+<li>反色导航条。与默认导航条相比只是背景，文本颜色变化。将<code>.navbar-default</code>类换成<code>.navbar-inverse</code>即可。
+	<br/><a id="default">点我使导航条默认显示</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="inverse">点我使导航条反色显示</a>
+</li>
+<li>分页导航。<span class="text-danger">暂时用不着，先不写了，标记下，回头写</span></li>
+
+
+
+
+
+
+
+
+
+
+
         
 
+    <h1 id=""></h1>
 
+
+    <h1 id=""></h1>
+
+
+
+    <h1 id=""></h1>
+
+
+
+    <h1 id=""></h1>
+
+
+
+    <h1 id=""></h1>
+
+
+
+    <h1 id=""></h1>
+
+
+
+    <h1 id=""></h1>
 
 
 
@@ -390,6 +555,14 @@
           else{
             $("#pills-bar").addClass('nav-justified');
           }
+        });
+
+        // 反色导航条
+        $("#default").bind('click',function(){
+        	$('#the-bar').removeClass('navbar-inverse').addClass('navbar-default');
+        });
+        $('#inverse').click(function(){
+        	$('#the-bar').removeClass('navbar-default').addClass('navbar-inverse');
         });
         
 
