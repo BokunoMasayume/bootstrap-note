@@ -31,7 +31,7 @@
     <a href = "#7">表格风格</a><br/>
     <a href = "#8">表格行的颜色类</a><br/>
     <a href = "#9">表单</a><br/>
-    <a href = "#10"></a><br/>
+    <a href = "#10">导航</a><br/>
     <a href = "#11"></a><br/>
     <a href = "#12"></a><br/>
     <a href = "#13"></a><br/>
@@ -221,9 +221,80 @@
     <h1 id="9">表单</h1>
     <ul>表单的每个输入区域最好放在一个div中，且带一个from-group类
       <li>水平表单。即标签在左，控件在右。利用form元素上的.form-horizontal类实现。</li>
-      
+      <li>内联表单。即表单的所有控件在同一行显示 .form-inline类实现。</li>
+      <li>表单控件：
+        <ul>
+          <li>给各种控件加.form-control 类：
+            <ul><input type="email" class="form-control" placeholder="我加了.form-control类" style="width:40%;" /></ul>
+            <ul><select multiple class="form-control" style="width:40%;">
+                  <option>git</option>
+                  <option>svn</option>
+                  <option>java</option>
+                  <option>php</option>
+                  <option>python</option>
+                </select>
+            </ul>
+          </li>
+          <li>使复选框，单选按钮水平排列：给label加类.checkbox-inline  .radio-inline
+            <ul>
+                <div class="form-group">
+                  <label class="checkbox-inline">
+                    <input type="checkbox"  value="option1">游戏
+                  </label>
+                  <label class="checkbox-inline">
+                    <input type="checkbox"  value="option2">摄影
+                  </label>
+                  <label class="checkbox-inline">
+                    <input type="checkbox"  value="option3">旅游
+                  </label>
+                </div>
+                <div class="form-group">
+                  <label class="radio-inline">
+                    <input type="radio"  value="option1" name="sex">男性
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio"  value="option2" name="sex">女性
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio"  value="option3" name="sex">中性
+                  </label>
+                </div></ul></li>
+          <li class="text-danger">其他的放放，咱们先去看导航栏</li></ul></li></ul>
 
-    <h1 id=""></h1>
+
+
+    <h1 id="10">导航</h1>
+    <ul><b>导航一般通过为<span class="text-info">ul,li</span>增加样式实现</b></ul>
+    <ul><b>一般导航里会有一个选项卡被选中，bootstrap框架中通过给当前选项卡添加<span class="text-info">.active</span>类实现。另外，有的选项卡处于禁用状态，可以添加<span class="text-info">.disabled</span>类实现。</b></ul>
+    <ul><b>bootstrap框架中制作导航条主要通过给ul添加<span class="text-success">.nav</span>类，默认的.nav样式不提供默认导航样式，必须附加另一个样式，比如<span class="text-info">.nav-tabs</span>等。</b>
+      <li>标签形导航卡，也叫选项卡导航，使用<span class="text-info">.nav-tabs</span>来实现
+        <ul class="nav nav-tabs " id="tabs-bar">
+          <li class="active"><a href="#10">导航</a></li>
+          <li><a href="#top">顶部</a></li>
+          <li ><a href="#5">列表</a></li>
+          <li class="disabled"><a href="#">代码</a></li>
+        </ul>
+      </li>
+      <li>胶囊形导航，使用<span class="text-info">.nav-pills</span>类实现。
+        <ul class="nav nav-pills" id="pills-bar">
+          <li class="active"><a href="#10">导航</a></li>
+          <li><a href="#top">顶部</a></li>
+          <li ><a href="#5">列表</a></li>
+          <li class="disabled"><a href="#">代码</a></li>
+        </ul>
+      </li>
+      <li>垂直堆砌导航。上面的两种导航都是水平风格的导航，若是想要垂直导航，只需在上面两类基础上多加<span class="text-info">.nav-stacked</span>类即可。<br/>
+        <span class="text-muted">或许这么理解，bs中各种导航默认样式是水平的，添加.nav-stacked类使它变成了垂直的。</span><br/>
+        <a id="tabs-stacked">点我使选项卡导航垂直堆砌</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="pills-stacked">点我使胶囊形导航垂直堆砌</a>
+      </li>
+      <li>自适应导航<span class="text-success">.nav-justified</span>。指占用容器全部宽度，且菜单项自适应宽度。和垂直堆砌一样需要<span class="text-info">.nav-pills</span>或<span class="text-info">.nav-tabs</span>配合使用。<br/>
+        <a id="tabs-justified">点我使选项卡导航自适应</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="pills-justified">点我使胶囊形导航自适应</a>
+      </li>
+        
+
+
+
+
 
 
 
@@ -252,6 +323,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <script>
       $(function(){
+
+
+        // 表格
         $('#table').bind('click',function(){
             $('#exmplate').removeClass().addClass("table");
             $("#text").text("我是基础表格");
@@ -276,6 +350,46 @@
         $('#table-responsive').bind('click',function(){
             $('#exmplate').removeClass().addClass("table table-responsive");
             $("#text").text("我是响应式表格");
+        });
+
+
+
+        // 垂直堆砌导航条
+        $("#tabs-stacked").bind('click',function(){
+          if($("#tabs-bar").hasClass('nav-stacked')){
+            $("#tabs-bar").removeClass('nav-stacked');
+          }
+          else{
+            $("#tabs-bar").addClass('nav-stacked');
+          }
+        });
+
+        $("#pills-stacked").bind('click',function(){
+          if($("#pills-bar").hasClass('nav-stacked')){
+            $("#pills-bar").removeClass('nav-stacked');
+          }
+          else{
+            $("#pills-bar").addClass('nav-stacked');
+          }
+        });
+
+        // 自适应导航
+        $("#tabs-justified").bind('click',function(){
+          if($("#tabs-bar").hasClass('nav-justified')){
+            $("#tabs-bar").removeClass('nav-justified');
+          }
+          else{
+            $("#tabs-bar").addClass('nav-justified');
+          }
+        });
+
+        $("#pills-justified").bind('click',function(){
+          if($("#pills-bar").hasClass('nav-justified')){
+            $("#pills-bar").removeClass('nav-justified');
+          }
+          else{
+            $("#pills-bar").addClass('nav-justified');
+          }
         });
         
 
