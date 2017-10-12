@@ -33,25 +33,27 @@
     <a href = "#9">表单</a><br/>
     <a href = "#10">导航</a><br/>
     <a href = "#11">导航条</a><br/>
-    <a href = "#12"></a><br/>
-    <a href = "#13"></a><br/>
+    <a href = "#12">图像和图标</a><br/>
+    <a href = "#13">网格系统</a><br/>
     <a href = "#14"></a><br/>
     <a href = "#15"></a><br/>
     <a href = "#16"></a><br/>
     <a href = "#"></a><br/>
-
+<!-- 标题 -->
     <h1 id="1">标&nbsp;题</h1>
     <p>
       <ul>可以直接使用h1-h6的html5标签</ul>
       <ul>也可以为非标题元素添加h1-h6的class，和h1-h6标签不一样的是，它只改变了字体字号等，不会将display变为block</ul>
       <ul>网页常常用small标签为标题添加副标题，bootstrap为标题标签下的副标题添加了一些样式：例子：<span class="h5">我是有h5类的span<small>我是small标签的副标题</small></span></ul>
     </p>
+<!-- 强调内容 -->
     <h1 id="2">强调内容</h1>
     <p>
       <ul>strong标签和b标签可以让文本加粗</ul>
      <ul> class=lead可以改变字号等。例子：<span class="lead">我被强调</span><br/></ul>
       <ul>i和em标签以及font-style:italic样式都可以使文本斜体。例子：<i>我是斜体</i></ul>
     </p>
+<!-- 强调颜色 -->
     <h1 id="3">强调：颜色</h1>
     <ul class="lead">bootstrap定义了一组类来通过颜色表示强调。</ul>
     <ul class = "text-muted">.text-muted：提示，使用浅灰色（#999）</ul>
@@ -60,7 +62,7 @@
     <ul class = "text-info">.text-info：通知信息，使用浅蓝色（#31708f）</ul>
     <ul class = "text-warning">.text-warning：警告，使用黄色（#8a6d3b）</ul>
     <ul class = "text-danger">.text-danger：危险，使用褐色（#a94442）</ul>
-
+<!-- 文本 对齐风格 -->
     <h1 id="4">文本对齐风格 </h1>
     <ul>一般使用CSS的text-align样式设置文本对齐风格,可能取值如下 ：
       <ul>左left</ul>
@@ -76,7 +78,7 @@
       <ul>.text-justify</ul>
     </ul>
 
-
+<!-- 列表 -->
 
     <h1 id="5">列表</h1>
     <ul>在html标签中定义了3中列表：
@@ -119,7 +121,7 @@
       </li>
     </ul>
 
-
+<!-- 代码 -->
     <h1 id="6">代码</h1>
     <ul><b>bootstrap提供了三种风格：</b>
       <li>使用<code>&lt;code&gt;&lt;/code&gt;</code>显示单行内联代码</li>
@@ -143,7 +145,7 @@
     <ul><b>其他：</b>
       <li>给pre添加.pre-scrollable类，可使块的高度超过340px时显示滚动条。</li>
     </ul>
-
+<!-- 表格风格 -->
     <h1 id="7">表格风格</h1>
     <ul><b>bootstrap提供了几种类以实现不同的表格风格</b>
       <li id="table"><a >基础表格，实现其他风格除了其类还要加入该类 .table</a></li>
@@ -184,7 +186,7 @@
    </tbody>
  </table>
     </ul>
-
+<!-- 表格行的颜色类 -->
     <h1 id="8">表格行的颜色类</h1>
     <h3>bootstrap为表格的行元素提供了5种类，将其加入<code>&lt;tr&gt;</code>的类中即可。</h3>
       <table class="table">
@@ -217,7 +219,7 @@
           </tr>
         </tbody>
       </table>
-
+<!-- 表单 -->
     <h1 id="9">表单</h1>
     <ul>表单的每个输入区域最好放在一个div中，且带一个from-group类
       <li>水平表单。即标签在左，控件在右。利用form标签上的.form-horizontal类实现，需配合bootstrap的网格系统。</li>
@@ -261,7 +263,7 @@
                   </label>
                 </div></ul></li>
           <li>文本域<code>&lt;textera&gt;</code>。rows属性设置高度，cols属性设置宽度，若在&lt;textera&gt;中添加.form-control类则宽度为100%或auto。</li>
-          <li>按钮。bootstrap框架中的按钮都是采用<code>&lt;button&gt;</code>实现的。
+          <li><span class="text-info">按钮。bootstrap框架中的按钮一般采用<code>&lt;button&gt;</code>实现的。除此之外，给a,input，甚至span，div等其他标签添加bootstrap的按钮相关类也可以制作标签。</span>
           	<table class="table table-responsive table-striped table-bordered">
      			<tbody>
      				<tr>
@@ -290,6 +292,21 @@
      				</tr>
      			</tbody>
      		</table>
+     		<span class="text-info">可以通过给按钮添加<code>btn-lg,btn-sm,btn-xs</code>类快捷的改变按钮大小。</span>
+     		<table class="table table-bordered">
+     			<tbody>
+     				<tr>
+     					<td><button class="btn btn-success btn-lg">大型按钮</button></td>
+     					<td><button class="btn btn-success ">正常按钮</button></td>
+     					<td><button class="btn btn-success btn-sm">小型按钮</button></td>
+     					<td><button class="btn btn-success btn-xs">超小型按钮</button></td>
+     				</tr>
+     			</tbody>
+     		</table>
+     		<span class="text-info">块状按钮。给按钮添加<code>.btn-block</code>类实现。</span>
+     		<button disabled class="btn btn-success btn-block">块状的我</button>
+     		<span class="text-info">
+     		按钮状态。分为活动状态和禁用状态。禁用状态通过给&lt;button&gt;添加disabled属性或者添加.disabled类就能做到。活动状态分为悬浮状态<code>:hover</code>,点击状态<code>:active</code>和焦点状态<code>:focus</code>，是通过伪类实现的。</span>
      	</li>
      	<li>表单控件大小。可以通过设置控件的height,line-height,padding,font-size等属性设置控件的高度。bootstrap框架提供了两个类可以使控件更大<code>.input-sm</code>或更小<code>.input-lg</code>>。这两个类适用于input,textarea,select控件。</li>
      	<li>焦点状态，通过加:focus伪类定义样式。禁用状态，表单禁用通过给控件加disabled属性实现。bootstrap对这些的样式有一些优化。<br/>
@@ -297,14 +314,14 @@
      	<li>验证状态。bootstrap提供了三种样式<code>.has-warning .has-error .has-success</code>，使用时只需要在<span class="text-info">form-group</span>容器上添加对应类名。</li>
      	<li>表单提示信息。在<code>.form-group</code>容器里加入一个<code>.help-block</code>样式的信息容器。
      		<pre>
-&lt;div class="form-group has-success "&gt;
+    &lt;div class="form-group has-success "&gt;
 	&lt;label class="control-label" &gt;姓名：
 		&lt;input type="text"  class="form-control" placeholder="输入姓名"/&gt;
 	&lt;/label&gt;
 	&lt;span class="help-block"&gt;输入格式正确&lt;/span&gt;
-&lt;/div&gt;
+    &lt;/div&gt;
 			</pre>
-<div class="form-group has-success ">
+    <div class="form-group has-success ">
 		<label class="control-label" >姓名：
 		
 			<input type="text"  class="form-control" placeholder="输入姓名"/></label>
@@ -312,11 +329,12 @@
 		<span class="help-block">输入格式正确</span>
 	</div>
 		</li>
+	</ul>
+</li>
+</ul>
 
-      </ul>
 
-
-
+<!-- 导航 -->
     <h1 id="10">导航</h1>
     <ul><b>导航一般通过为<span class="text-info">ul,li</span>增加样式实现</b></ul>
     <ul><b>一般导航里会有一个选项卡被选中，bootstrap框架中通过给当前选项卡添加<span class="text-info">.active</span>类实现。另外，有的选项卡处于禁用状态，可以添加<span class="text-info">.disabled</span>类实现。</b></ul>
@@ -375,6 +393,7 @@
       </li>
     </ul>
 
+<!-- 导航条 -->
     <h1 id="11">导航条</h1>
     <ul><b>导航(nav)和导航条(navbar)名字很像，但在bootstrap框架还是有明显的区别。</b><br/>
       <b>比如导航条有背景色，而且导航条既可以是纯链接(就像导航)，也可以是表单，甚至两种的混合等。</b>
@@ -444,7 +463,7 @@
       		&lt;li&gt;&lt;a href="##"&gt;关于我们&lt;/a&gt;&lt;/li&gt;
 	 	&lt;/ul&gt;
   &lt;/div&gt;
-&lt;/div&gt;
+ &lt;/div&gt;
 		</pre>显示效果如下：
 		<div id="the-bar" class="navbar navbar-default" role="navigation">
   <div class="navbar-header">
@@ -468,13 +487,15 @@
       		<li><a href="##">关于我们</a></li>
 	 	</ul>
   </div>
-</div>
+ </div>
 
-</li>
-<li>反色导航条。与默认导航条相比只是背景，文本颜色变化。将<code>.navbar-default</code>类换成<code>.navbar-inverse</code>即可。
+ </li>
+ <li>反色导航条。与默认导航条相比只是背景，文本颜色变化。将<code>.navbar-default</code>类换成<code>.navbar-inverse</code>即可。
 	<br/><a id="default">点我使导航条默认显示</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="inverse">点我使导航条反色显示</a>
-</li>
-<li>分页导航。<span class="text-danger">暂时用不着，先不写了，标记下，回头写</span></li>
+ </li>
+ <li>分页导航。<span class="text-danger">暂时用不着，先不写了，标记下，回头写</span></li>
+
+ </ul>
 
 
 
@@ -486,15 +507,102 @@
 
 
 
-        
+<!-- 图像和图标 -->
 
-    <h1 id=""></h1>
+    <h1 id="12">图像和图标</h1>
+    <ul>bootstrap提供了以下几个类，将它们添加在&lt;img&gt;标签里即可获得相应效果。<br/>
+    	<span class="text-muted">http://via.placeholder.com/axb&nbsp;可以获得想要尺寸的占位图。</span>
+    	<li>
+    		<table class="table table-bordered">
+    			<tbody>
+    				<tr>
+    					<td class="text-muted">默认图片</td>
+    					<td class="text-muted">响应式图片</td>
+    					<td class="text-muted">圆角图片</td>
+    					<td class="text-muted">圆形图片</td>
+    					<td class="text-muted">缩略图片</td>
+    				</tr>
+    				<tr>
+    					<td><code>/</code></td>
+    					<td><code>.img-responsive</code></td>
+    					<td><code>.img-rounded</code></td>
+    					<td><code>img-circle</code></td>
+    					<td><code>.img-thumbnail</code></td>
+    				</tr>
+    				<tr>
+    					<td><img alt="默认图片140x140" src="http://via.placeholder.com/140x140"/></td>
+    					<td><img class="img-responsive" src="http://via.placeholder.com/140x140"/></td>
+    					<td><img class="img-rounded" src="http://via.placeholder.com/140x140"/></td>
+    					<td><img class="img-circle" src="http://via.placeholder.com/140x140"/></td>
+    					<td><img class="img-thumbnail" src="http://via.placeholder.com/140x140"/></td>
+    				</tr>
+    			</tbody>
+    		</table>
+    	</li>
+    	<li>bootstrap框架提供了近200个icon图片，它们都是使用css3的@font-face属性配合字体来实现icon效果<s>是的听起来很牛但我完全不懂</s>。举几个例子：<br/>
+    		<table class="table">
+    			<tbody>
+    				<tr>
+    					<td>class</td>
+    					<td><code>.glyphicon .glyphicon-search</code></td>
+    					<td><code>.glyphicon .glyphicon-asterisk</code></td>
+    					<td><code>.glyphicon .glyphicon-plus</code></td>
+    				</tr>
+    				<tr>
+    					<td>样式</td>
+    					<td><span class="glyphicon glyphicon-search"></span></td>
+    					<td><span class="glyphicon glyphicon-asterisk"></span></td>
+    					<td><span class="glyphicon glyphicon-plus"></span></td>
+    				</tr>
+    			</tbody>
+    		</table>
+    		<img src="iconList.jpg"/>
+    	</li>
 
 
-    <h1 id=""></h1>
+    	</ul>
 
 
+<!-- 网格系统 -->
+    <h1 id="13">网格系统</h1>
 
+
+<div id="myCarousel" class="carousel slide">
+        <ol class="carousel-indicators">
+           <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+           <li data-target="#myCarousel" data-slide-to="1"></li>
+           <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="http://images3.c-ctrip.com/rk/201407/ll580x145.jpg" alt="">
+                <div class="carousel-caption">
+                  <h4>标题一</h4>
+                  <p>图片一内容简介</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="http://images3.c-ctrip.com/dj/201408/zj/zj_580145.jpg" alt="">
+                <div class="carousel-caption">
+                   <h4>标题二/h4>
+                   <p>图片二内容简介</p>
+                </div>
+            </div>
+            <div class="item">
+            	<img src="http://images3.c-ctrip.com/rk/201403/yfdd580145a.png" alt="">
+                <div class="carousel-caption">
+                  <h4>标题三</h4>
+                  <p>图片三内容简介</p>
+                </div>
+            </div>
+      </div>
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div>
+    <script>
+    $('.carousel').carousel()
+    </script>
+    <script src="http://cdn.bootcss.com/bootstrap/2.3.1/js/bootstrap-carousel.min.js"></script>
     <h1 id=""></h1>
 
 
@@ -535,7 +643,7 @@
 
     
 
-    <!-- Optional JavaScript -->
+<!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
