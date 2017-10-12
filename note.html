@@ -220,7 +220,7 @@
 
     <h1 id="9">表单</h1>
     <ul>表单的每个输入区域最好放在一个div中，且带一个from-group类
-      <li>水平表单。即标签在左，控件在右。利用form元素上的.form-horizontal类实现。</li>
+      <li>水平表单。即标签在左，控件在右。利用form标签上的.form-horizontal类实现，需配合bootstrap的网格系统。</li>
       <li>内联表单。即表单的所有控件在同一行显示 .form-inline类实现。</li>
       <li>表单控件：
         <ul>
@@ -235,7 +235,8 @@
                 </select>
             </ul>
           </li>
-          <li>使复选框，单选按钮水平排列：给label加类.checkbox-inline  .radio-inline
+          <li>bootstrap中的checkbox和radio有点特殊，在使用它们的时候在<code>&lt;label&gt;</code>标签外包一层<code>&lt;div class="radio|checkbox"&gt;</code>可增加页面颜值。</li>
+          <li>使复选框，单选按钮水平排列：给label加类.checkbox-inline  .radio-inline即可。<span class="text-muted">外面不要包.ckeckbox|radio的div了。</span>
             <ul>
                 <div class="form-group">
                   <label class="checkbox-inline">
@@ -259,7 +260,60 @@
                     <input type="radio"  value="option3" name="sex">中性
                   </label>
                 </div></ul></li>
-          <li class="text-danger">其他的放放，咱们先去看导航栏</li></ul></li></ul>
+          <li>文本域<code>&lt;textera&gt;</code>。rows属性设置高度，cols属性设置宽度，若在&lt;textera&gt;中添加.form-control类则宽度为100%或auto。</li>
+          <li>按钮。bootstrap框架中的按钮都是采用<code>&lt;button&gt;</code>实现的。
+          	<table class="table table-responsive table-striped table-bordered">
+     			<tbody>
+     				<tr>
+     					<td>style</td>
+     					<td><button class="btn" href="#">base</button></td>
+     					<td><button class="btn btn-default">default</button></td>
+     					<td><button class="btn btn-primary">primary</button></td>
+     					<td><button class="btn btn-info">info</button></td>
+     					<td><button class="btn btn-success">success</button></td>
+     					<td><button class="btn btn-warning">warning</button></td>
+     					<td><button class="btn btn-danger">danger</button></td>
+     					<td><button class="btn btn-inverse">inverse</button></td>
+     					<td><button class="btn btn-link">link</button></td>
+     				</tr>
+     				<tr>
+     					<td>class</td>
+     					<td><code>btn</code></td>
+     					<td><code>default</code></td>
+     					<td><code>btn btn-primary</code></td>
+     					<td><code>btn btn-info</code></td>
+     					<td><code>btn btn-success</code></td>
+     					<td><code>btn btn-warning</code></td>
+     					<td><code>btn btn-danger</code></td>
+     					<td><code>btn btn-inverse</code></td>
+     					<td><code>btn btn-link</code></td>
+     				</tr>
+     			</tbody>
+     		</table>
+     	</li>
+     	<li>表单控件大小。可以通过设置控件的height,line-height,padding,font-size等属性设置控件的高度。bootstrap框架提供了两个类可以使控件更大<code>.input-sm</code>或更小<code>.input-lg</code>>。这两个类适用于input,textarea,select控件。</li>
+     	<li>焦点状态，通过加:focus伪类定义样式。禁用状态，表单禁用通过给控件加disabled属性实现。bootstrap对这些的样式有一些优化。<br/>
+     		<span class="text-muted">form标签中&lt;fieldset disabled&gt;标签括起来的区域会全部禁用，但如果其内部有legend标签并且legend标签里有输入框，这个输入框无法被禁用。</span></li>
+     	<li>验证状态。bootstrap提供了三种样式<code>.has-warning .has-error .has-success</code>，使用时只需要在<span class="text-info">form-group</span>容器上添加对应类名。</li>
+     	<li>表单提示信息。在<code>.form-group</code>容器里加入一个<code>.help-block</code>样式的信息容器。
+     		<pre>
+&lt;div class="form-group has-success "&gt;
+	&lt;label class="control-label" &gt;姓名：
+		&lt;input type="text"  class="form-control" placeholder="输入姓名"/&gt;
+	&lt;/label&gt;
+	&lt;span class="help-block"&gt;输入格式正确&lt;/span&gt;
+&lt;/div&gt;
+			</pre>
+<div class="form-group has-success ">
+		<label class="control-label" >姓名：
+		
+			<input type="text"  class="form-control" placeholder="输入姓名"/></label>
+		
+		<span class="help-block">输入格式正确</span>
+	</div>
+		</li>
+
+      </ul>
 
 
 
