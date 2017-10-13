@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"> -->
+  <style type="text/css">
+ #goto_top{
+      position:fixed;
+      bottom:10px;
+      right:10px;
+    }
+  </style>
+  </head>
+  <body>
+
+<div id="top"></div>
+<a id="goto_top" href="#top">回到顶部</a>
+<a href="#1">模态弹出框</a><br/>
+<a href="#2">轮播图</a><br/>
+<a href="#"></a><br/>
+<a href="#"></a><br/>
+<a href="#"></a><br/>
+<a href="#"></a><br/>
+<a href="#"></a><br/>
+<a href="#"></a><br/>
+<a href="#"></a><br/>
+<a href="#"></a><br/>
+<a href="#"></a><br/>
+<a href="#"></a><br/>
+<a href="#"></a><br/>
+<a href="#"></a><br/>
+<a href="#"></a><br/>
+<a href="#"></a><br/>
+<a href="#"></a><br/>
+<a href="#"></a><br/>
+<a href="#"></a><br/>
+<a href="#"></a><br/>
+
+<!-- 模态弹出框 -->
+  <h1 id="1">模态弹出框</h1>
+  <ul>
+    <li>动画过渡插件(transition.js)。默认情况下模态弹出框，选项卡，警告框，图片轮播使用了这个插件。<span class="text-success">http://cdn.bootcss.com/bootstrap/2.3.1/js/bootstrap-transition.js</span></li>
+    <li>模态弹出框引入地址：<span class="text-success">http://cdn.bootcss.com/bootstrap/2.3.1/js/bootstrap-transition.js</span></li>
+    <li>结构分析。
+      <div style="width:50%;border:2px solid #59595A">
+        <span class="text-primary">.modal&nbsp;.modal-dialog&nbsp;.modal-content</span>
+        <div style="margin:5px 10px;border:2px solid #59595A">
+          <span class="text-primary">.modal-header</span><br>
+          <span class="text-info">标题和关闭按钮</span>
+        </div>
+        <div style="margin:5px 10px;border:2px solid #59595A">
+          <span class="text-primary">.modal-body</span><br>
+          <span class="text-info">主要内容</span>
+        </div>
+        <div style="margin:5px 10px;border:2px solid #59595A">
+          <span class="text-primary">.modal-footer</span><br>
+          <span class="text-info">放置操作按钮</span>
+        </div>
+      </div>
+      <pre>
+  &lt;button class="btn btn-primary" data-toggle="modal" data-target="#mymodal-data" type="button"&gt;通过data-target触发&lt;/button&gt;
+  &lt;!-- 模态弹出窗内容 --&gt;
+  &lt;div class="modal" id="mymodal-data" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"&gt;
+    &lt;div class="modal-dialog"&gt;
+    &lt;div class="modal-content"&gt;
+      &lt;div class="modal-header"&gt;
+        &lt;!-- 出于某种玄学，必需关闭按钮在前，标题在后 --&gt;
+        &lt;button type="button" class="close" data-dismiss="modal"&gt;&lt;span aria-hidden="true"&gt;&times;&lt;/span&gt;&lt;span class="sr-only"&gt;Close&lt;/span&gt;&lt;/button&gt;
+        &lt;h4 class="modal-title"&gt;模态弹出窗标题&lt;/h4&gt;
+      &lt;/div&gt;
+      &lt;div class="modal-body"&gt;
+        &lt;p&gt;模态弹出窗主体内容&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="modal-footer"&gt;
+        &lt;button type="button" class="btn btn-default" data-dismiss="modal"&gt;关闭&lt;/button&gt;
+        &lt;button type="button" class="btn btn-primary"&gt;保存&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+ &lt;/div&gt;
+      </pre>
+      <span class="btn btn-primary" data-toggle="modal" data-target="#mymodal-data" type="button">通过data-target触发</span>
+ <!-- 模态弹出窗内容 -->
+ <div class="modal fade"  id="mymodal-data" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">模态弹出窗标题</h4>
+      </div>
+      <div class="modal-body">
+        <p>模态弹出窗主体内容</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary">保存</button>
+      </div>
+    </div>
+  </div>
+ </div>
+    </li>
+    <li>不同尺寸，添加<code>.modal-lg .modal-sm</code>类添加到<code>.modal-dialog</code>容器上。</li>
+    <li>自定义属性触发模态弹出框的两种方法。
+      <ul>
+        <li>声明式触发 ：给触发元素(一般button，实测span也行)添加两个属性<code>data-toggle="modal"  data-target=".modal的类或#id"</code></li>
+        <li>&lt;a&gt;触发。和声明式触发的区别就是用href属性代替了data-target属性，连属性值都不用变orz。</li>
+      </ul>
+    </li>
+    <li>为弹出框增加过渡动画效果.fade。<code>&lt;div class="moal <kbd>fade</kbd>" tabindex="-1"&gt;</code></li>
+    <p class="text-muted">Tips:<br/>
+      tabindex属性可以设置键盘中TAB键在控件中的移动顺序，即焦点顺序。<br/>
+      当值为1~32767中的任一个，焦点将由较小属性值移动到较大属性值，属性值一样时，按代码中出现顺序为准。<br/>
+      当值为0（默认值）时，排到上述正值之后。<br/>
+      当值为-1时，它将被排除在序列之外，也就是会被TAB键忽略。
+    </p>
+    <li>模态弹出框常用data-参数说明<span class="text-muted">一般使在触发元素上</span>。
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>属性名称</th>
+            <th>类型</th>
+            <th>默认值</th>
+            <th>描述</th>
+            <th>备注</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>data-toggle</code></td>
+            <td>字符</td>
+            <td>modal</td>
+            <td>用来控制模态弹出框的显示。</td>
+            <td>必须要在触发modal的元素上定义，并且值必须是modal。</td>
+          </tr>
+          <tr>
+            <td><code>data-target</code></td>
+            <td>字符</td>
+            <td>用户自定义</td>
+            <td>用来定义被触发的模态框是哪个，值可以是.类名或#id。</td>
+            <td>必须要在触发modal的元素上定义，且能与其值对应的对象必须只有一个</td>
+          </tr>
+          <tr>
+            <td><code>data-backdrop</code></td>
+            <td>布尔值</td>
+            <td>true</td>
+            <td>是否包含一个背景div元素。true时单击该背景关闭弹出窗；static时单击背景不会关闭弹出窗。</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><code>data-keyboard</code></td>
+            <td>布尔值</td>
+            <td>true</td>
+            <td>true时按键盘的ESC键可以关闭弹出窗；false时无法用ESC键关闭弹出窗。</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><code>data-show</code></td>
+            <td>布尔值</td>
+            <td>true</td>
+            <td>初始化时，弹出框是否显示。</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><code>href</code></td>
+            <td>URL路径</td>
+            <td>空值</td>
+            <td>如果用a元素触发弹出框，且其href值不是以#开头，就说明这是个url地址，模态弹出框会用加载的其内容替换原有的modal-content的内容，这时data-target的值必须是id</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>JS触发模态弹出框。给按钮或随便什么你看上的元素绑个click或随便什么事件，函数里调用.modal元素的modal()方法就行了。栗子：
+      <pre>
+        $(function(){
+          $(".btn").click(function(){
+            $("#mymodal").modal();
+          });
+        });
+      </pre>
+    </li>
+    <li>JS触发时的属性设置。
+      <table class="table-bordered table">
+        <thead>
+          <tr>
+            <th>属性</th>
+            <th>对应的data-属性</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>backdrop</code></td>
+            <td>data-backdrop</td>
+          </tr>
+          <tr>
+            <td><code>keyboard</code></td>
+            <td>data-keyboard</td>
+          </tr>
+          <tr>
+            <td><code>show</code></td>
+            <td>data-show</td>
+          </tr>
+          <tr>
+            <td><code>remote</code></td>
+            <td>href</td>
+          </tr>
+        </tbody>
+      </table>
+      <pre>
+        $(function(){
+          $(".btn").click(function(){
+              $("#mymodal").modal({
+                keyboard:false
+              });
+          });
+        });
+      </pre>
+    </li>
+    <li>JS触发时参数设置。
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>参数</th>
+            <th>使用方法</th>
+            <th>描述</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>toggle</code></td>
+            <td><pre>
+              $("#themodal").modal("toggle");
+            </pre></td>
+            <td>触发时，反转弹出框状态，原本显示则关闭；原本关闭则显示。</td>
+          </tr>
+          <tr>
+            <td><code>show</code></td>
+            <td>同上</td>
+            <td>触发时显示弹出框</td>
+          </tr>
+          <tr>
+            <td><code>hide</code></td>
+            <td>同上</td>
+            <td>触发时关闭弹出框</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>JS触发时事件设置。模态弹出窗支持四种类型的事件，分别是模态弹出窗的弹出前、弹出后，关闭前、关闭后。<span class="text-muted">可以弹出后出个动画之类的hhh</span>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>事件类型</th>
+            <th>使用方法</th>
+            <th>描述</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>show.bs.modal</code></td>
+            <td><pre>
+              $('#themodal').on("show.bs.modal",function(){
+                //高深莫测的代码...
+            });//除了on方法还可以用bind方法。
+          </pre></td>
+          <td>在show方法调用时立刻触发；如果单击了一个元素，将该元素作为事件的relatedTarget属性。</td>
+        </tr>
+        <tr>
+          <td><code>shown.bs.modal</code></td>
+          <td>同上</td>
+          <td>在模态弹出框完全显示（css动画也加载完成）后触发；如果单击了一个元素，将该元素作为事件的relatedTarget属性。</td>
+        </tr>
+        <tr>
+          <td><code>hide.bs.modal</code></td>
+          <td>同上</td>
+          <td>在hide方法调用（但还没来得及关闭隐藏）时立即触发</td>
+        </tr>
+        <tr>
+          <td><code>hidden.bs.modal</code></td>
+          <td>同上</td>
+          <td>在模态弹出框完全隐藏后触发。</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+ </ul>
+
+
+<!-- 轮播图 -->
+  <h1 id="2">轮播图</h1>
+  
+
+
+
+<!--  -->
+
+
+
+
+
+
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script> -->
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  </body>
+  </html>
