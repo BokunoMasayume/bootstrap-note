@@ -293,13 +293,139 @@
 
 <!-- 轮播图 -->
   <h1 id="2">轮播图</h1>
-  
+  <ul>
+    <li>轮播图引入地址：<code>&lt;script src="http://cdn.bootcss.com/bootstrap/2.3.1/js/bootstrap-carousel.min.js"&gt;&lt;/script&gt;</code></li>
+    <li>一个轮播图主要包含三个部分：
+      <ul><li>轮播的图片。</li>
+        <li>轮播图片计数器。</li>
+        <li>轮播图片的控制器。</li>
+      </ul>
+    </li>
+    <li>轮播图框架的使用方式。
+      <ol>
+        <li>设计一个轮播图的容器(div)，给它添加<code>.carousel</code>类。</li>
+        <li>设计轮播图的计数器，在上条创建的容器里添加一个<code>.carousel-indicators</code>类的ol列表。里面每个li对应轮播图的一个图片。</li>
+        <li>设计轮播图的播放区。在第一条的容器(div)里添加一个<code>.carousel-inner</code>类的div,里面每个<code>.item</code>类容器放置一个图片。</li>
+        <li class="text-muted">在item容器里除了图片链接，还可以添加标题和描述内容。<code>.carousel-caption</code></li>
+        <li>设计控制器。<code>.right|left .carousel-control</code>
+          <pre>
+            &lt;a class="right carousel-control" &gt;
+              &lt;span class="glyphicon-chevron-right"&gt;&lt;/span&gt;
+            &lt;/a&gt;
+            &lt;a class="left carousel-control" &gt;
+              &lt;span class="glyphicon-chevron-left"&gt;&lt;/span&gt;
+            &lt;/a&gt;
+          </pre>
+        </li>
+      </ol>
+    </li>
+    <li>声明式触发。
+      <table class="table">
+        <tr>
+          <td>属性</td>
+          <td>取值</td>
+          <td>描述</td>
+        </tr>
+        <tr class="warning">
+          <td>data-ride</td>
+          <td>carousel</td>
+          <td>定义在.carousel容器上。</td>
+        </tr>
+        <tr class="warning">
+          <td>data-target</td>
+          <td>carousel容器的类或id。</td>
+          <td>定义在计数器每个&lt;li&gt;上。</td>
+        </tr>
+        <tr class="warning">
+          <td>data-slide</td>
+          <td>prev或next</td>
+          <td>定义在控制器的&lt;a&gt;上，同时&lt;a&gt;上的href属性取值carousel容器的类或ID.</td>
+        </tr>
+        <tr class="warning">
+          <td>data-slide-to</td>
+          <td>从0开始的整数。</td>
+          <td>定义在计数器的每个li上</td>
+        </tr>
+        <tr class="info">
+          <td>data-interval</td>
+          <td>number&nbsp;&nbsp;默认5000</td>
+          <td>幻灯片轮换的等待时间(毫秒)，若为false，则不会自动循环。</td>
+        </tr>
+        <tr class="info">
+          <td>data-pause</td>
+          <td>string &nbsp;&nbsp;默认值hover.</td>
+          <td>默认鼠标悬停时停止播放，离开开始播放。</td>
+        </tr>
+        <tr class="info">
+          <td>data-wrap</td>
+          <td>boolean&nbsp;&nbsp;true</td>
+          <td>轮播是否持续循环。</td>
+        </tr>
+      </table>
+
+      <div style="width:500px;height:280px;" data-ride="carousel" class="carousel" id="carousel-test">
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-test" data-slide-to="0">1</li>
+          <li data-target="#carousel-test" data-slide-to="1">2</li>
+          <li data-target="#carousel-test" data-slide-to="2">3</li>
+          <li data-target="#carousel-test" data-slide-to="3">4</li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="item active">
+            <a><img src="1.jpg" alt="1.jpg"/></a>
+            <div class="carousel-caption">
+              <h3>标题</h3>
+            </div>
+          </div>
+          <div class="item">
+            <a><img src="2.jpg"/></a>
+            <div class="carousel-caption">
+              <h3>标题</h3>
+            </div>
+          </div>
+          <div class="item">
+            <a><img src="3.jpg"/></a>
+            <div class="carousel-caption">
+              <h3>标题</h3>
+            </div>
+          </div>
+          <div class="item">
+            <a><img src="4.jpg"/></a>
+            <div class="carousel-caption">
+              <h3>标题</h3>
+            </div>
+          </div>
+        </div>
+        <a href="#carousel-test" data-slide="prev" class="left carousel-control"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        <a href="#carousel-test" data-slide="next" class="right carousel-control"><span class="glyphicon glyphicon-chevron-right"></span></a>
+      </div>
+    </li>
+    <li>JS触发。$("#carousel-test").carousel()<br/>
+      可传递属性：interval,pause,wrap<br/>
+      <ul>参数:
+        <li>cycle:从左到右循环播放。</li>
+        <li>pause:停止循环播放。</li>
+        <li>number:循环到指定帧。
+          <pre>
+            $("#carousel-test li").click(function(){
+              $(#carousel-test).carousel("0");
+          });
+          </pre>
+        </li>
+        <li>prev,next.到上/下一帧</li>
+      </ul>
+    </li>
+
+        
+
 
 
 
 <!--  -->
 
-
+<div id="box" style="width:252px;font:25px/25px 宋体;background:black;color:yellow;border:red 20px ridge;text-shadow:2px 3px 1px green;">
+  地方vdfv
+</div>
 
 
 
